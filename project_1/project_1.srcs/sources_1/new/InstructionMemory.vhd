@@ -16,18 +16,18 @@ architecture Behavioral of InstructionMemory is
     type memory_t is array(0 to 127) of memoryword_t;
     
     signal memory:memory_t:=(
-    0=>x"0000000", -- nop
+    0=> x"00000000", -- nop
     1=>"00100000000000100000000000000011", -- R[2] = R[0] + 3 (addi $v0 $zero 0x003
-    2=>x"0000007",
-    3=>"00000000001000100001100000100000", -- R[3] = R[1] + R[2]
-    127 => "0000000",
+    2=>x"00000007",
+    15=>"00000000001000100001100000100000", -- R[3] = R[1] + R[2]
+    127 => x"00000000",
     others => (others => '0')
     );
 begin
     instructionMemoryProcess:process(clk)
     begin
-        memory(to_integer(unsigned(PC))) <= x"1234567";
+        --memory(to_integer(unsigned(PC))) <= x"1234567";
     
-        instruction <= memory(to_integer(unsigned(PC)));
+        instruction <= memory(to_integer(unsigned(PC(31 downto 2))));
     end process;
 end Behavioral;

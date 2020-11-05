@@ -2,7 +2,9 @@
 2016.4
 Jan 23 2017
 19:19:20
+/home/student/Documents/MIPS/MIPS/project_1/project_1.srcs/sim_1/new/TB_Top_InstructionFetch.vhd,1604611819,vhdl,,,,tb_top_instructionfetch,,,,,,,,
 /home/student/Documents/MIPS/MIPS/project_1/project_1.srcs/sources_1/new/Adder.vhd,1604574762,vhdl,,,,adder,,,,,,,,
+/home/student/Documents/MIPS/MIPS/project_1/project_1.srcs/sources_1/new/InstructionMemory.vhd,1604609023,vhdl,,,,instructionmemory,,,,,,,,
 /home/student/Documents/MIPS/MIPS/project_1/project_1.srcs/sources_1/new/ProgramCounter.vhd,1604518928,vhdl,,,,programcounter,,,,,,,,
-/home/student/Documents/MIPS/MIPS/project_1/project_1.srcs/sources_1/new/TB_Top_ProgramCounter.vhd,1604518928,vhdl,,,,tb_top_programcounter,,,,,,,,
+/home/student/Documents/MIPS/MIPS/project_1/project_1.srcs/sources_1/new/Top_InstructionFetch.vhd,1604610177,vhdl,,,,top_instructionfetch,,,,,,,,
 /home/student/Documents/MIPS/MIPS/project_1/project_1.srcs/sources_1/new/Top_ProgramCounter.vhd,1604574878,vhdl,,,,top_programcounter,,,,,,,,
