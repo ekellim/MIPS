@@ -9,4 +9,4 @@ then
 exit $RETVAL
 fi
 }
-ExecStep $xv_path/bin/xsim TB_ProgramCounter_behav -key {Behavioral:sim_1:Functional:TB_ProgramCounter} -tclbatch TB_ProgramCounter.tcl -log simulate.log
+ExecStep $xv_path/bin/xsim TB_Top_ProgramCounter_behav -key {Behavioral:sim_1:Functional:TB_Top_ProgramCounter} -tclbatch TB_Top_ProgramCounter.tcl -log simulate.log

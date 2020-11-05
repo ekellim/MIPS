@@ -29,7 +29,8 @@ architecture Behavioral of Top_ProgramCounter is
         clk         : in        STD_LOGIC;
         input1      : in        STD_LOGIC_VECTOR(31 downto 0);
         input2      : in        STD_LOGIC_VECTOR(31 downto 0);
-        output      : out       STD_LOGIC_VECTOR(31 downto 0) := (others => '0')
+        output      : out       STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
+        reset       : in        STD_LOGIC
     );
     end component;
     
@@ -53,7 +54,8 @@ begin
         input1  => pc_old,
         --input2  => x"00000004",
         input2 => std_logic_vector(to_unsigned(4,32)),
-        output  => pc_new
+        output  => pc_new, 
+        reset => reset
     );
     
     PC <= PC_old;
