@@ -1,6 +1,6 @@
 Vivado Simulator 2016.4
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: /home/student/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto d67e869c0b3c40baadd5f1d89b5868c1 --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot TB_Top_InstructionFetch_behav xil_defaultlib.TB_Top_InstructionFetch -log elaborate.log 
+Running: /home/student/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto d67e869c0b3c40baadd5f1d89b5868c1 --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot TB_Registers_behav xil_defaultlib.TB_Registers -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -11,12 +11,6 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling architecture behavioral of entity xil_defaultlib.ProgramCounter [programcounter_default]
-Compiling architecture behavioral of entity xil_defaultlib.Adder [adder_default]
-Compiling architecture behavioral of entity xil_defaultlib.Top_ProgramCounter [top_programcounter_default]
-Compiling architecture behavioral of entity xil_defaultlib.InstructionMemory [instructionmemory_default]
-Compiling architecture behavioral of entity xil_defaultlib.Top_InstructionFetch [top_instructionfetch_default]
-Compiling architecture behavioral of entity xil_defaultlib.tb_top_instructionfetch
-Built simulation snapshot TB_Top_InstructionFetch_behav
+Compiling architecture behavioral of entity xil_defaultlib.Registers [registers_default]
+Compiling architecture behavioral of entity xil_defaultlib.tb_registers
+Built simulation snapshot TB_Registers_behav
