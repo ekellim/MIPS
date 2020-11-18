@@ -9,5 +9,5 @@ then
 exit $RETVAL
 fi
 }
-echo "xvhdl -m64 --relax -prj TB_Registers_vhdl.prj"
-ExecStep $xv_path/bin/xvhdl -m64 --relax -prj TB_Registers_vhdl.prj 2>&1 | tee -a compile.log
+echo "xvhdl -m64 --relax -prj TB_ALU_Control_vhdl.prj"
+ExecStep $xv_path/bin/xvhdl -m64 --relax -prj TB_ALU_Control_vhdl.prj 2>&1 | tee -a compile.log
