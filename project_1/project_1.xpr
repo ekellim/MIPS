@@ -66,20 +66,22 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/InstructionMemory.vhd">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/new/Top_ProgramCounter.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/new/InstructionMemory.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/new/Top_InstructionFetch.vhd">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -91,6 +93,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+<<<<<<< HEAD
       <File Path="$PSRCDIR/sources_1/new/Control.vhd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
@@ -113,6 +116,9 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/ALU_Control.vhd">
+=======
+      <File Path="$PSRCDIR/sources_1/new/dataMemory.vhd">
+>>>>>>> ce0ce42f45d1f0a2c9261041d4e0a4ddad030a6a
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -121,7 +127,7 @@
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="Top_InstructionFetch"/>
+        <Option Name="TopModule" Val="Top_ProgramCounter"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
@@ -197,8 +203,13 @@
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
+<<<<<<< HEAD
         <Option Name="TopModule" Val="TB_ALU_Control"/>
+=======
+        <Option Name="TopModule" Val="TB_ProgramCounter"/>
+>>>>>>> ce0ce42f45d1f0a2c9261041d4e0a4ddad030a6a
         <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TopAutoSet" Val="TRUE"/>
         <Option Name="TransportPathDelay" Val="0"/>
         <Option Name="TransportIntDelay" Val="0"/>
         <Option Name="SrcSet" Val="sources_1"/>
