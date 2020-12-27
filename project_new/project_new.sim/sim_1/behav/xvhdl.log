@@ -1,0 +1,28 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/student/Documents/ProjectMIPS/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Adder.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Adder
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/student/Documents/ProjectMIPS/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/ProgramCounter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ProgramCounter
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/student/Documents/ProjectMIPS/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Mux_2to1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Mux_2to1
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/student/Documents/ProjectMIPS/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPS_NEW/project_1/project_1.srcs/sources_1/new/AND_gate.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity AND_gate
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/student/Documents/ProjectMIPS/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Control.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Control
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/student/Documents/ProjectMIPS/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/InstructionMemory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity InstructionMemory
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/student/Documents/ProjectMIPS/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Registers.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Registers
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/student/Documents/ProjectMIPS/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/ALU.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/student/Documents/ProjectMIPS/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/dataMemory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity dataMemory
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/student/Documents/ProjectMIPS/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPS_NEW/project_1/project_1.srcs/sources_1/new/Sign_extend.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Sign_extend
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/student/Documents/ProjectMIPS/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPS_NEW/project_1/project_1.srcs/sources_1/new/Shift_left2.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Shift_left2
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/student/Documents/ProjectMIPS/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/ALU_Control.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ALU_Control
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/student/Documents/ProjectMIPS/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPS_NEW/project_1/project_1.srcs/sources_1/new/Top_MIPS.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Top_MIPS
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/student/Documents/ProjectMIPS/MIPS/project_new/project_new.srcs/sim_1/imports/Documents/MIPS_NEW/project_1/project_1.srcs/sim_1/new/TB_MIPS_TOP.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity TB_MIPS_TOP
