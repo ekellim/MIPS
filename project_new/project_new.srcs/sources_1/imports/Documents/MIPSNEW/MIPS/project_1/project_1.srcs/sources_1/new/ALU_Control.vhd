@@ -58,8 +58,14 @@ begin
                         ALU_Contr <= "0000";
                     when "100101" =>            --OR    
                         ALU_Contr <= "0001";
+                    when "100111" =>            --NOR
+                        ALU_Contr <= "0011";
                     when "101010" =>            --set on less than
                         ALU_Contr <= "0111";
+                    when "000000" =>            --shift left logical
+                        ALU_Contr <= "0100";
+                    when "000010" =>            --shift right logical
+                        ALU_Contr <= "0101";
                     when others =>
                         ALU_Contr <= "1111";
                 end case;

@@ -55,6 +55,8 @@ begin
                     RESULT := input_0 or input_1;
                 when "0010" =>                                      --ADD
                     RESULT := std_logic_vector(signed(input_0) + signed(input_1));
+                when "0011" =>                                      --NOR
+                    RESULT := input_0 nor input_1;
                 when "0110" =>                                      --SUBTRACT
                     RESULT := std_logic_vector(signed(input_0) - signed(input_1));
                 when "0111" =>                                      --SET ON LESS THAN
@@ -63,10 +65,14 @@ begin
                     else
                         RESULT := std_logic_vector(to_signed(0, 32));
                     end if;
-                when "1100" =>                                      --NOR   
-                    RESULT := input_0 nor input_1;               
-                    
-                    
+                when "0100" =>                                      -- SHIFT LEFT LOGICAL
+                    RESULT := std_logic_vector(signed(input_0) sll 3);
+                    --RESULT := std_logic_vector(input_0(28 downto 0) & "000");
+                    --RESULT := std_logic_vector(shift_left(signed(input_0), 3));
+                when "0101" =>                                      -- SHIFT RIGHT LOGICAL
+                    RESULT := std_logic_vector(signed(input_0) srl 2);
+                    --RESULT := std_logic_vector("00" & input_0(31 downto 2));
+                    --RESULT := std_logic_vector(shift_right(signed(input_0), 2));
                 when others =>
                     RESULT := x"ffffffff";   
             end case;
