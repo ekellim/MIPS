@@ -55,6 +55,8 @@ begin
                     RESULT := input_0 or input_1;
                 when "0010" =>                                      --ADD
                     RESULT := std_logic_vector(signed(input_0) + signed(input_1));
+                when "1000" =>                                      --ADDU
+                    RESULT := std_logic_vector(unsigned(input_0) + unsigned(input_1));
                 when "0011" =>                                      --NOR
                     RESULT := input_0 nor input_1;
                 when "0110" =>                                      --SUBTRACT

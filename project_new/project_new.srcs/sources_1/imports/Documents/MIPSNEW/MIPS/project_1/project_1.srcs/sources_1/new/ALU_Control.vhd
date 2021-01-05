@@ -52,6 +52,8 @@ begin
                 case func is
                     when "100000" =>            --add
                         ALU_Contr <= "0010";
+                    when "100001" =>            --addu
+                        ALU_Contr <= "1000";
                     when "100010" =>            --subtract
                         ALU_Contr <= "0110";
                     when "100100" =>            --AND

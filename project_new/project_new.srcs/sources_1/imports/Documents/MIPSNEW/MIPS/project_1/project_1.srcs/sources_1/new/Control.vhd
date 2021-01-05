@@ -111,7 +111,7 @@ begin
                 MemWrite    <= '0';
                 ALUSrc      <= '0';
                 RegWrite    <= '0';
-             when "000101"      =>  --bne
+             when "000101"      =>  --bne  DEZE IS NOG NIET IN ORDE
                 RegDst      <= '0';
                 Jump        <= '0';
                 Branch      <= '1';
