@@ -34,6 +34,7 @@ entity ALU is
     input_0             : in STD_LOGIC_VECTOR(31 DOWNTO 0);
     input_1             : in STD_LOGIC_VECTOR(31 DOWNTO 0);
     alu_control_in      : in STD_LOGIC_VECTOR(3 DOWNTO 0);
+    shamt               : in STD_LOGIC_VECTOR(4 DOWNTO 0);
     zero                : out STD_LOGIC;
     overflow            : out STD_LOGIC;
     ALU_res             : out STD_LOGIC_VECTOR(31 DOWNTO 0)
@@ -68,11 +69,11 @@ begin
                         RESULT := std_logic_vector(to_signed(0, 32));
                     end if;
                 when "0100" =>                                      -- SHIFT LEFT LOGICAL
-                    RESULT := std_logic_vector(signed(input_0) sll 3);
+                    RESULT := std_logic_vector(signed(input_1) sll to_integer(unsigned(shamt)));
                     --RESULT := std_logic_vector(input_0(28 downto 0) & "000");
                     --RESULT := std_logic_vector(shift_left(signed(input_0), 3));
                 when "0101" =>                                      -- SHIFT RIGHT LOGICAL
-                    RESULT := std_logic_vector(signed(input_0) srl 2);
+                    RESULT := std_logic_vector(signed(input_1) srl to_integer(unsigned(shamt)));
                     --RESULT := std_logic_vector("00" & input_0(31 downto 2));
                     --RESULT := std_logic_vector(shift_right(signed(input_0), 2));
                 when others =>
