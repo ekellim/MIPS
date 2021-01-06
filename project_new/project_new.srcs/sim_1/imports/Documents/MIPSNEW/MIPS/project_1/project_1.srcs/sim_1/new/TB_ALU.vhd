@@ -43,6 +43,7 @@ architecture Behavioral of TB_ALU is
             input_0             : in STD_LOGIC_VECTOR(31 DOWNTO 0);
             input_1             : in STD_LOGIC_VECTOR(31 DOWNTO 0);
             alu_control_in      : in STD_LOGIC_VECTOR(3 DOWNTO 0);
+            shamt               : in STD_LOGIC_VECTOR(4 DOWNTO 0);
             zero                : out STD_LOGIC;
             overflow            : out STD_LOGIC;
             ALU_res             : out STD_LOGIC_VECTOR(31 DOWNTO 0)
@@ -53,6 +54,7 @@ architecture Behavioral of TB_ALU is
     signal input_0             : STD_LOGIC_VECTOR(31 DOWNTO 0);
     signal input_1             : STD_LOGIC_VECTOR(31 DOWNTO 0);
     signal alu_control_in      : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    signal shamt               : STD_LOGIC_VECTOR(4 DOWNTO 0);
     signal zero                : STD_LOGIC;
     signal overflow            : STD_LOGIC; 
     signal ALU_res             : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -67,6 +69,7 @@ begin
         input_0, 
         input_1, 
         alu_control_in, 
+        shamt,
         zero, 
         overflow,
         ALU_res
@@ -83,8 +86,8 @@ begin
     sim_process : process
             begin
                 wait for 20ns;
-                input_0 <= x"00000100";
-                input_1 <= x"f0000001";--input_1 <= x"00000001";
+                input_0 <= x"00110100";
+                input_1 <= x"00000000";--input_1 <= x"00000001";
                 alu_control_in <= "0010";
                 wait for 10ns;
                 alu_control_in <= "0000";
@@ -99,7 +102,15 @@ begin
                 wait for 20ns;
                 alu_control_in <= "0100";
                 wait for 20ns; 
-                alu_control_in <= "0101";        
+                alu_control_in <= "0101";
+                wait for 20ns;
+                input_1 <= x"00000200";--input_1 <= x"00000001";      
+                wait for 20ns; 
+                alu_control_in <= "1001";   
+                wait for 20ns; 
+                alu_control_in <= "1100";   
+                wait for 20ns; 
+                alu_control_in <= "1011";
                 wait;
                 
             end process;
