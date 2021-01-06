@@ -68,7 +68,7 @@ begin
                 when "0110" =>                                      --SUBTRACT
                     RESULT := std_logic_vector(signed(input_0) - signed(input_1));
                 when "0111" =>                                      --SET ON LESS THAN
-                    if input_0 < input_1 then
+                    if signed(input_0) < signed(input_1) then
                         RESULT := std_logic_vector(to_signed(1, 32));
                     else
                         RESULT := std_logic_vector(to_signed(0, 32));
