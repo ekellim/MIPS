@@ -83,7 +83,7 @@ begin
 
     sim_process : process
             begin
-                wait for 800ns;
+                wait for 8000ns;
                 reset <= '1';
                 wait for 1ns;
                 reset <= '0';

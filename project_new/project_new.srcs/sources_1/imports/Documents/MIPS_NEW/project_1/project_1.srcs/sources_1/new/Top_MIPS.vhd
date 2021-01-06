@@ -148,6 +148,7 @@ architecture Behavioral of Top_MIPS is
                 input_0             : in STD_LOGIC_VECTOR(31 DOWNTO 0);
                 input_1             : in STD_LOGIC_VECTOR(31 DOWNTO 0);
                 alu_control_in      : in STD_LOGIC_VECTOR(3 DOWNTO 0);
+                shamt               : in STD_LOGIC_VECTOR(4 DOWNTO 0);
                 zero                : out STD_LOGIC;
                 overflow            : out STD_LOGIC;
                 ALU_res             : out STD_LOGIC_VECTOR(31 DOWNTO 0)
@@ -340,6 +341,7 @@ begin
         clk         => clk, 
         input_0     => read_data_1, 
         input_1     => mux_ALU_input,
+        shamt       => instruction(10 DOWNTO 6),
         alu_control_in => ALU_Contr,
         zero        => zero, 
         overflow    => overflow,

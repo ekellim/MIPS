@@ -83,7 +83,7 @@ begin
     sim_process : process
             begin
                 wait for 20ns;
-                input_0 <= x"00000002";
+                input_0 <= x"00000100";
                 input_1 <= x"f0000001";--input_1 <= x"00000001";
                 alu_control_in <= "0010";
                 wait for 10ns;
@@ -95,7 +95,11 @@ begin
                 wait for 10ns;
                 alu_control_in <= "0111";    
                 wait for 10ns;
-                alu_control_in <= "1100";          
+                alu_control_in <= "1100";  
+                wait for 20ns;
+                alu_control_in <= "0100";
+                wait for 20ns; 
+                alu_control_in <= "0101";        
                 wait;
                 
             end process;
