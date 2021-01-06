@@ -35,6 +35,7 @@ entity Control is
         RegDst      : out STD_LOGIC;
         Jump        : out STD_LOGIC;
         Branch      : out STD_LOGIC;
+        Branch_ne   : out STD_LOGIC;
         MemRead     : out STD_LOGIC;
         MemtoReg    : out STD_LOGIC;
         ALUOp       : out STD_LOGIC_VECTOR(1 DOWNTO 0);
@@ -111,10 +112,11 @@ begin
                 MemWrite    <= '0';
                 ALUSrc      <= '0';
                 RegWrite    <= '0';
-             when "000101"      =>  --bne  DEZE IS NOG NIET IN ORDE
+             when "000101"      =>  --bne
                 RegDst      <= '0';
                 Jump        <= '0';
-                Branch      <= '1';
+                Branch      <= '0';
+                Branch_ne   <= '1';
                 MemRead     <= '0';
                 MemtoReg    <= '0';
                 ALUOp       <= "01";

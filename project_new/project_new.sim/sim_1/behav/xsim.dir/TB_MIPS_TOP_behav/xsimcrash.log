@@ -1,0 +1,10 @@
+Printing stacktrace...
+
+[0] xsim.dir/TB_MIPS_TOP_behav/xsimk() [0x40c002]
+[1] /home/student/Xilinx/Vivado/2016.4/lib/lnx64.o/librdi_simulator_kernel.so(ISIMK::Kernel::callProcessExecuteFunctions()+0x9e) [0x7f2b19e4ea1e]
+[2] /home/student/Xilinx/Vivado/2016.4/lib/lnx64.o/librdi_simulator_kernel.so(ISIMK::ListQ::processTimeSlots()+0xb1) [0x7f2b19e51921]
+[3] /home/student/Xilinx/Vivado/2016.4/lib/lnx64.o/librdi_simulator_kernel.so(ISIMK::GDBMIHost::runSimulationLoop()+0xa9) [0x7f2b19e48619]
+[4] /home/student/Xilinx/Vivado/2016.4/lib/lnx64.o/libstdc++.so.6(+0xb0160) [0x7f2b1897f160]
+[5] /lib/x86_64-linux-gnu/libpthread.so.0(+0x76ba) [0x7f2b194896ba]
+[6] /lib/x86_64-linux-gnu/libc.so.6(clone+0x6d) [0x7f2b197a64dd]
+Done

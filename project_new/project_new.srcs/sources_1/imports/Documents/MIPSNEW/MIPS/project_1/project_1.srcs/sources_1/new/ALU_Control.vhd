@@ -68,6 +68,14 @@ begin
                         ALU_Contr <= "0100";
                     when "000010" =>            --shift right logical
                         ALU_Contr <= "0101";
+                    when "011010" =>            --div
+                        ALU_Contr <= "1001";
+                    when "011000" =>            --mult
+                        ALU_Contr <= "1010";
+                    when "010010" =>            --mflo
+                        ALU_Contr <= "1011";
+                    when "010000" =>            --mfhi
+                        ALU_Contr <= "1100";  
                     when others =>
                         ALU_Contr <= "1111";
                 end case;
