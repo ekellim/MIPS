@@ -50,8 +50,10 @@ begin
         variable RESULT64:STD_LOGIC_VECTOR(63 DOWNTO 0);
         variable Hi : STD_LOGIC_VECTOR(31 DOWNTO 0);
         variable Lo : STD_LOGIC_VECTOR(31 DOWNTO 0);
+        variable test : INTEGER;
     begin
         if(rising_edge(clk)) then
+            overflow <= '0';
             case alu_control_in is
                 when "0000" =>                                      --AND
                     RESULT := input_0 and input_1;
@@ -66,7 +68,7 @@ begin
                 when "0110" =>                                      --SUBTRACT
                     RESULT := std_logic_vector(signed(input_0) - signed(input_1));
                 when "0111" =>                                      --SET ON LESS THAN
-                    if input_0 < input_1 then
+                    if signed(input_0) < signed(input_1) then
                         RESULT := std_logic_vector(to_signed(1, 32));
                     else
                         RESULT := std_logic_vector(to_signed(0, 32));
@@ -78,8 +80,14 @@ begin
                     --RESULT := std_logic_vector("00" & input_0(31 downto 2));
                     --RESULT := std_logic_vector(shift_right(signed(input_0), 2));
                 when "1001" =>                                      --DIV
-                    Lo := std_logic_vector(to_signed(to_integer(signed(input_0)) / to_integer(signed(input_1)),32));
-                    Hi := std_logic_vector(to_signed(to_integer(signed(input_0)) rem to_integer(signed(input_1)),32));              
+                    if (input_1 = x"00000000") then        
+                        overflow <= '1';
+                        Lo :=  x"01111111";
+                        Hi :=  x"01111111";
+                    else
+                        Lo := std_logic_vector(to_signed(to_integer(signed(input_0)) / to_integer(signed(input_1)),32));
+                        Hi := std_logic_vector(to_signed(to_integer(signed(input_0)) mod to_integer(signed(input_1)),32));       
+                    end if;      
                 when "1010" =>                                       --MULT
                     RESULT64 := std_logic_vector(signed(input_0) * signed(input_1));
                     Hi := RESULT64(63 DOWNTO 32);
