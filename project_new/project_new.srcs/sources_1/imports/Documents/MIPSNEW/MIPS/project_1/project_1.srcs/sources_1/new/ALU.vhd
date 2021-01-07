@@ -96,6 +96,12 @@ begin
                     RESULT := Lo;
                 when "1100" =>                                      --MFHI
                     RESULT := Hi;
+                when "1101" =>                                      --BNE
+                    if ((signed(input_0) - signed(input_1)) = 1) then
+                        RESULT := std_logic_vector(to_signed(1, 32));
+                    else
+                        RESULT := std_logic_vector(to_signed(0, 32));
+                    end if;
                 when others =>
                     RESULT := x"ffffffff";   
             end case;

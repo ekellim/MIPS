@@ -79,6 +79,8 @@ begin
                     when others =>
                         ALU_Contr <= "1111";
                 end case;
+            when "11" =>
+                ALU_Contr <= "1101";            --bne
             when others =>
                 ALU_Contr <= "1111";
         end case;

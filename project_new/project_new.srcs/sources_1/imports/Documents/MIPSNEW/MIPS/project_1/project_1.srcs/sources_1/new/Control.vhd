@@ -35,7 +35,6 @@ entity Control is
         RegDst      : out STD_LOGIC;
         Jump        : out STD_LOGIC;
         Branch      : out STD_LOGIC;
-        Branch_ne   : out STD_LOGIC;
         MemRead     : out STD_LOGIC;
         MemtoReg    : out STD_LOGIC;
         ALUOp       : out STD_LOGIC_VECTOR(1 DOWNTO 0);
@@ -63,6 +62,16 @@ begin
                 ALUSrc      <= '0';
                 RegWrite    <= '1';
             when "001000" =>        --addi
+                RegDst      <= '0';
+                Jump        <= '0';
+                Branch      <= '0';
+                MemRead     <= '0';
+                MemtoReg    <= '0';
+                ALUOp       <= "00";
+                MemWrite    <= '0';
+                ALUSrc      <= '1';
+                RegWrite    <= '1';
+             when "001001" =>       --addiu
                 RegDst      <= '0';
                 Jump        <= '0';
                 Branch      <= '0';
@@ -115,11 +124,10 @@ begin
              when "000101"      =>  --bne
                 RegDst      <= '0';
                 Jump        <= '0';
-                Branch      <= '0';
-                Branch_ne   <= '1';
+                Branch      <= '1';
                 MemRead     <= '0';
                 MemtoReg    <= '0';
-                ALUOp       <= "01";
+                ALUOp       <= "11";
                 MemWrite    <= '0';
                 ALUSrc      <= '0';
                 RegWrite    <= '0';
