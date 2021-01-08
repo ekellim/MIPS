@@ -30,7 +30,7 @@
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="zed"/>
     <Option Name="DSANumComputeUnits" Val="16"/>
-    <Option Name="WTXSimLaunchSim" Val="62"/>
+    <Option Name="WTXSimLaunchSim" Val="73"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -53,10 +53,10 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Adder.vhd">
+      <File Path="$PSRCDIR/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/ALU.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Adder.vhd"/>
-          <Attr Name="ImportTime" Val="1608811541"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/ALU.vhd"/>
+          <Attr Name="ImportTime" Val="1608894224"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -69,58 +69,10 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Mux_2to1.vhd">
+      <File Path="$PSRCDIR/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Adder.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Mux_2to1.vhd"/>
-          <Attr Name="ImportTime" Val="1608986462"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/Documents/MIPS_NEW/project_1/project_1.srcs/sources_1/new/AND_gate.vhd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPS_NEW/project_1/project_1.srcs/sources_1/new/AND_gate.vhd"/>
-          <Attr Name="ImportTime" Val="1608854683"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Control.vhd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Control.vhd"/>
-          <Attr Name="ImportTime" Val="1609026863"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/InstructionMemory.vhd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/InstructionMemory.vhd"/>
-          <Attr Name="ImportTime" Val="1609027269"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Registers.vhd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Registers.vhd"/>
-          <Attr Name="ImportTime" Val="1608996588"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/ALU.vhd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/ALU.vhd"/>
-          <Attr Name="ImportTime" Val="1608894224"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/dataMemory.vhd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/dataMemory.vhd"/>
-          <Attr Name="ImportTime" Val="1609026011"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Adder.vhd"/>
+          <Attr Name="ImportTime" Val="1608811541"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -137,6 +89,54 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPS_NEW/project_1/project_1.srcs/sources_1/new/Shift_left2.vhd"/>
           <Attr Name="ImportTime" Val="1608850984"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Registers.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Registers.vhd"/>
+          <Attr Name="ImportTime" Val="1608996588"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Mux_2to1.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Mux_2to1.vhd"/>
+          <Attr Name="ImportTime" Val="1608986462"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/InstructionMemory.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/InstructionMemory.vhd"/>
+          <Attr Name="ImportTime" Val="1609027269"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/dataMemory.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/dataMemory.vhd"/>
+          <Attr Name="ImportTime" Val="1609026011"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Control.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Control.vhd"/>
+          <Attr Name="ImportTime" Val="1609026863"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Documents/MIPS_NEW/project_1/project_1.srcs/sources_1/new/AND_gate.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../MIPS_NEW/project_1/project_1.srcs/sources_1/new/AND_gate.vhd"/>
+          <Attr Name="ImportTime" Val="1608854683"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>

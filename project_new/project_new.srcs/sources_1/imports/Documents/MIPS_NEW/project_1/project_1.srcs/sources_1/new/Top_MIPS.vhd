@@ -112,7 +112,7 @@ architecture Behavioral of Top_MIPS is
                      Branch      : out STD_LOGIC;
                      MemRead     : out STD_LOGIC;
                      MemtoReg    : out STD_LOGIC;
-                     ALUOp       : out STD_LOGIC_VECTOR(1 DOWNTO 0);
+                     ALUOp       : out STD_LOGIC_VECTOR(2 DOWNTO 0);
                      MemWrite    : out STD_LOGIC;
                      ALUSrc      : out STD_LOGIC;
                      RegWrite    : out STD_LOGIC
@@ -136,8 +136,9 @@ architecture Behavioral of Top_MIPS is
    component ALU_Control
         Port (
                 clk         : in STD_LOGIC;
-                ALUOp       : in STD_LOGIC_VECTOR(1 DOWNTO 0);
+                ALUOp       : in STD_LOGIC_VECTOR(2 DOWNTO 0);
                 func        : in STD_LOGIC_VECTOR (5 DOWNTO 0);
+                Usigned     : out STD_LOGIC;
                 ALU_Contr   : out STD_LOGIC_VECTOR(3 DOWNTO 0)        
         );
     end component; 
@@ -149,6 +150,7 @@ architecture Behavioral of Top_MIPS is
                 input_1             : in STD_LOGIC_VECTOR(31 DOWNTO 0);
                 alu_control_in      : in STD_LOGIC_VECTOR(3 DOWNTO 0);
                 shamt               : in STD_LOGIC_VECTOR(4 DOWNTO 0);
+                Usigned             : in STD_LOGIC;
                 zero                : out STD_LOGIC;
                 overflow            : out STD_LOGIC;
                 ALU_res             : out STD_LOGIC_VECTOR(31 DOWNTO 0)
@@ -189,10 +191,11 @@ architecture Behavioral of Top_MIPS is
     signal Branch       : STD_LOGIC;
     signal MemRead      : STD_LOGIC;
     signal MemtoReg     : STD_LOGIC;
-    signal ALUOp        : STD_LOGIC_VECTOR(1 DOWNTO 0);
+    signal ALUOp        : STD_LOGIC_VECTOR(2 DOWNTO 0);
     signal MemWrite     : STD_LOGIC;
     signal ALUSrc       : STD_LOGIC;                                                            
     signal RegWrite     : STD_LOGIC;
+    signal Usigned      : STD_LOGIC;
     
     signal write_reg    : STD_LOGIC_VECTOR(4 DOWNTO 0);
     signal write_data   : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -333,6 +336,7 @@ begin
         clk         => clk, 
         aluop       => ALUOp, 
         func        => instruction(5 DOWNTO 0), 
+        Usigned     => Usigned,
         ALU_Contr   => ALU_Contr      
    );
    
@@ -343,6 +347,7 @@ begin
         input_1     => mux_ALU_input,
         shamt       => instruction(10 DOWNTO 6),
         alu_control_in => ALU_Contr,
+        Usigned     => Usigned,
         zero        => zero, 
         overflow    => overflow,
         ALU_res     => ALU_result

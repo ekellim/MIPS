@@ -35,6 +35,7 @@ entity ALU is
     input_1             : in STD_LOGIC_VECTOR(31 DOWNTO 0);
     alu_control_in      : in STD_LOGIC_VECTOR(3 DOWNTO 0);
     shamt               : in STD_LOGIC_VECTOR(4 DOWNTO 0);
+    Usigned             : in STD_LOGIC;
     zero                : out STD_LOGIC;
     overflow            : out STD_LOGIC;
     ALU_res             : out STD_LOGIC_VECTOR(31 DOWNTO 0)
@@ -59,20 +60,43 @@ begin
                     RESULT := input_0 and input_1;
                 when "0001" =>                                      --OR
                     RESULT := input_0 or input_1;
-                when "0010" =>                                      --ADD
-                    RESULT := std_logic_vector(signed(input_0) + signed(input_1));
-                when "1000" =>                                      --ADDU
-                    RESULT := std_logic_vector(unsigned(input_0) + unsigned(input_1));
+                when "0010" =>                                      
+                    case Usigned is
+                        when '0' =>
+                            RESULT := std_logic_vector(signed(input_0) + signed(input_1));  --ADD
+                        when '1' =>
+                            RESULT := std_logic_vector(unsigned(input_0) + unsigned(input_1)); --ADDU
+                        when others =>
+                            RESULT := x"ffffffff";
+                    end case;
                 when "0011" =>                                      --NOR
                     RESULT := input_0 nor input_1;
-                when "0110" =>                                      --SUBTRACT
-                    RESULT := std_logic_vector(signed(input_0) - signed(input_1));
-                when "0111" =>                                      --SET ON LESS THAN
-                    if signed(input_0) < signed(input_1) then
-                        RESULT := std_logic_vector(to_signed(1, 32));
-                    else
-                        RESULT := std_logic_vector(to_signed(0, 32));
-                    end if;
+                when "0110" =>                        
+                    case Usigned is
+                        when '0' =>
+                            RESULT := std_logic_vector(signed(input_0) - signed(input_1));  --SUBTRACT
+                        when '1' =>
+                            RESULT := std_logic_vector(unsigned(input_0) - unsigned(input_1));  --SUBTRACT UNSIGNED
+                        when others =>
+                            RESULT := x"ffffffff";
+                    end case;
+                when "0111" =>                                      
+                    case Usigned is
+                        when '0' =>                                 --SET ON LESS THAN
+                            if signed(input_0) < signed(input_1) then
+                                RESULT := std_logic_vector(to_signed(1, 32));
+                            else
+                                RESULT := std_logic_vector(to_signed(0, 32));
+                            end if;
+                        when '1' =>                                 --SET ON LESS THAN UNSIGNED
+                            if unsigned(input_0) < unsigned(input_1) then
+                                RESULT := std_logic_vector(to_unsigned(1, 32));
+                            else
+                                RESULT := std_logic_vector(to_unsigned(0, 32));
+                            end if;
+                        when others =>
+                            RESULT := x"ffffffff";
+                    end case;
                 when "0100" =>                                      -- SHIFT LEFT LOGICAL
                     RESULT := std_logic_vector(signed(input_1) sll to_integer(unsigned(shamt)));
                 when "0101" =>                                      -- SHIFT RIGHT LOGICAL
@@ -80,18 +104,42 @@ begin
                     --RESULT := std_logic_vector("00" & input_0(31 downto 2));
                     --RESULT := std_logic_vector(shift_right(signed(input_0), 2));
                 when "1001" =>                                      --DIV
-                    if (input_1 = x"00000000") then        
-                        overflow <= '1';
-                        Lo :=  x"01111111";
-                        Hi :=  x"01111111";
-                    else
-                        Lo := std_logic_vector(to_signed(to_integer(signed(input_0)) / to_integer(signed(input_1)),32));
-                        Hi := std_logic_vector(to_signed(to_integer(signed(input_0)) mod to_integer(signed(input_1)),32));       
-                    end if;      
+                    case Usigned is
+                        when '0' =>                                 --DIV
+                            if (input_1 = x"00000000") then        
+                                overflow <= '1';
+                                Lo :=  x"01111111";
+                                Hi :=  x"01111111";
+                            else
+                                Lo := std_logic_vector(to_signed(to_integer(signed(input_0)) / to_integer(signed(input_1)),32));
+                                Hi := std_logic_vector(to_signed(to_integer(signed(input_0)) mod to_integer(signed(input_1)),32));       
+                            end if;
+                        when '1' =>                                 --DIVU
+                            if (input_1 = x"00000000") then        
+                                overflow <= '1';
+                                Lo :=  x"01111111";
+                                Hi :=  x"01111111";
+                            else
+                                Lo := std_logic_vector(to_unsigned(to_integer(unsigned(input_0)) / to_integer(unsigned(input_1)),32));
+                                Hi := std_logic_vector(to_unsigned(to_integer(unsigned(input_0)) mod to_integer(unsigned(input_1)),32));       
+                            end if;
+                        when others =>
+                            RESULT := x"ffffffff";
+                    end case;
                 when "1010" =>                                       --MULT
-                    RESULT64 := std_logic_vector(signed(input_0) * signed(input_1));
-                    Hi := RESULT64(63 DOWNTO 32);
-                    Lo := RESULT64(31 DOWNTO 0);
+                    case Usigned is
+                        when '0' =>                                  
+                            RESULT64 := std_logic_vector(signed(input_0) * signed(input_1));        --MULT
+                            Hi := RESULT64(63 DOWNTO 32);
+                            Lo := RESULT64(31 DOWNTO 0);
+                        when '1' =>                                    
+                            RESULT64 := std_logic_vector(unsigned(input_0) * unsigned(input_1));    --MULTU
+                            Hi := RESULT64(63 DOWNTO 32);
+                            Lo := RESULT64(31 DOWNTO 0);
+                        when others =>
+                            RESULT := x"ffffffff";
+                    end case;
+                    
                 when "1011" =>                                      --MFLO
                     RESULT := Lo;
                 when "1100" =>                                      --MFHI

@@ -3,11 +3,11 @@
 Jan 23 2017
 19:19:20
 /home/student/Documents/MIPS/project_new/project_new.srcs/sim_1/imports/Documents/MIPS_NEW/project_1/project_1.srcs/sim_1/new/TB_MIPS_TOP.vhd,1609939575,vhdl,,,,tb_mips_top,,,,,,,,
-/home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/ALU.vhd,1610056797,vhdl,,,,alu,,,,,,,,
-/home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/ALU_Control.vhd,1610051697,vhdl,,,,alu_control,,,,,,,,
+/home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/ALU.vhd,1610139282,vhdl,,,,alu,,,,,,,,
+/home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/ALU_Control.vhd,1610140292,vhdl,,,,alu_control,,,,,,,,
 /home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Adder.vhd,1609192000,vhdl,,,,adder,,,,,,,,
-/home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Control.vhd,1610053389,vhdl,,,,control,,,,,,,,
-/home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/InstructionMemory.vhd,1610058313,vhdl,,,,instructionmemory,,,,,,,,
+/home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Control.vhd,1610140170,vhdl,,,,control,,,,,,,,
+/home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/InstructionMemory.vhd,1610140060,vhdl,,,,instructionmemory,,,,,,,,
 /home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Mux_2to1.vhd,1609192000,vhdl,,,,mux_2to1,,,,,,,,
 /home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/ProgramCounter.vhd,1609192000,vhdl,,,,programcounter,,,,,,,,
 /home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Registers.vhd,1609192000,vhdl,,,,registers,,,,,,,,
@@ -15,4 +15,4 @@ Jan 23 2017
 /home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPS_NEW/project_1/project_1.srcs/sources_1/new/AND_gate.vhd,1609192000,vhdl,,,,and_gate,,,,,,,,
 /home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPS_NEW/project_1/project_1.srcs/sources_1/new/Shift_left2.vhd,1609192000,vhdl,,,,shift_left2,,,,,,,,
 /home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPS_NEW/project_1/project_1.srcs/sources_1/new/Sign_extend.vhd,1609192000,vhdl,,,,sign_extend,,,,,,,,
-/home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPS_NEW/project_1/project_1.srcs/sources_1/new/Top_MIPS.vhd,1610052474,vhdl,,,,top_mips,,,,,,,,
+/home/student/Documents/MIPS/project_new/project_new.srcs/sources_1/imports/Documents/MIPS_NEW/project_1/project_1.srcs/sources_1/new/Top_MIPS.vhd,1610136319,vhdl,,,,top_mips,,,,,,,,
