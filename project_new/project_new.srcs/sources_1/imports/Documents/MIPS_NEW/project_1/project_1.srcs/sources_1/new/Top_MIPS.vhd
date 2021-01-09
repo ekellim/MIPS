@@ -30,13 +30,17 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity Top_MIPS is
     Port ( 
-        clk         :   in STD_LOGIC;
+        clk         :   inout STD_LOGIC;    --voor visualisatie
+        clk_uart    :   inout STD_LOGIC;    --voor visualisatie
         reset       :   in STD_LOGIC;
         instr_test  :   out STD_LOGIC_VECTOR(31 DOWNTO 0);   --visualisation in TB and debugging
         data_out    :   out STD_LOGIC_VECTOR(31 DOWNTO 0);
         pc_test     :   out STD_LOGIC_VECTOR(31 DOWNTO 0);
         data_read_1 :   out STD_LOGIC_VECTOR(31 DOWNTO 0);
-        data_read_2 :   out STD_LOGIC_VECTOR(31 DOWNTO 0)
+        data_read_2 :   out STD_LOGIC_VECTOR(31 DOWNTO 0);
+        RX          :   in  STD_LOGIC;
+        TX          :   out STD_LOGIC;
+        busy_test   :   inout STD_LOGIC
     );
 end Top_MIPS;
 
@@ -159,13 +163,17 @@ architecture Behavioral of Top_MIPS is
     
     component dataMemory is
         Port ( 
-        clk         : in STD_LOGIC;
-        reset       : in STD_LOGIC;
-        address     : in STD_LOGIC_VECTOR (31 downto 0);
-        writeData   : in STD_LOGIC_VECTOR (31 downto 0);
-        memRead     : in STD_LOGIC;
-        memWrite    : in STD_LOGIC;
-        readData    : out STD_LOGIC_VECTOR (31 downto 0) := (others => '0')
+        clk         : in STD_LOGIC;                                           
+        reset       : in STD_LOGIC;                                           
+        address     : in STD_LOGIC_VECTOR (31 downto 0);                      
+        writeData   : in STD_LOGIC_VECTOR (31 downto 0);                      
+        memRead     : in STD_LOGIC;                                           
+        memWrite    : in STD_LOGIC;                                           
+        readData    : out STD_LOGIC_VECTOR (31 downto 0) := (others => '0');  
+        uartSend    : out STD_LOGIC_VECTOR (31 downto 0) := (others => '0');  
+        startSend   : out STD_LOGIC;                                          
+        uartReceive : in  STD_LOGIC_VECTOR (31 downto 0) := (others => '0');  
+        received    : in  STD_LOGIC := '0'                                    
         );
     end component;
     
@@ -176,7 +184,42 @@ architecture Behavioral of Top_MIPS is
         output  :   out STD_LOGIC       
       );
     end component;
-     
+    
+    component Clock_generator is
+        Port (
+        disable     : in STD_LOGIC;
+        clk         : out STD_LOGIC
+        );
+    end component;
+    
+    component UART is
+        Generic(                    
+        baud_rate: NATURAL:= 9600
+        );                           
+        Port (
+        clk_i:       in         std_logic;                    
+        data_i:      in         std_logic_vector(31 downto 0);
+        start_tx_i:  in         std_logic;                    
+                                                              
+        data_o:      out        std_logic_vector(31 downto 0);
+        rx_received: out        std_logic;                    
+                                                              
+        RX_i:        in         std_logic;                    
+        TX_o:        out        std_logic;                    
+                                                              
+        busy:        out        std_logic                     
+        );
+     end component;
+    
+    --signal clk          :   STD_LOGIC; 
+    --signal clk_uart     :   STD_LOGIC;
+    
+    signal data_send    : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    signal data_received: STD_LOGIC_VECTOR(31 DOWNTO 0);
+    signal start_tx     : STD_LOGIC;
+    signal rx_received  : STD_LOGIC;
+    signal uart_busy    : STD_LOGIC;
+    
     signal pc_in        :   STD_LOGIC_VECTOR(31 DOWNTO 0);
     signal pc_out       :   STD_LOGIC_VECTOR(31 DOWNTO 0);
     signal pc_plus_4    :   STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -222,6 +265,8 @@ architecture Behavioral of Top_MIPS is
     signal branch_mux   : STD_LOGIC_VECTOR(31 DOWNTO 0);
     
     signal jump_mux    : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    
+    constant clk_period : time := 10 ns;
 begin
 
     pc:ProgramCounter
@@ -413,7 +458,11 @@ begin
        writeData    => read_data_2,
        memRead      => memRead,
        memWrite     => memWrite,
-       readData     => read_data_dm
+       readData     => read_data_dm, 
+       uartSend     => data_send,
+       uartReceive  => data_received,
+       startSend    => start_tx,
+       received     => rx_received
    );
    
    mux_data:Mux_2to1
@@ -427,6 +476,35 @@ begin
         in_1        => read_data_dm, 
         output      => write_data
    );
+       
+     uart1:UART
+     generic map(
+          baud_rate   => 9600
+     )
+     port map(
+          clk_i       => clk_uart,
+          data_i      => data_send,  
+          data_o      => data_received,
+          start_tx_i  => start_tx,
+          rx_received => rx_received,
+          busy        => busy_test,
+          RX_i        => RX,
+          TX_o        => TX   
+     );
+   
+       clock_MIPS:Clock_generator
+       port map(
+            disable     => busy_test,
+            clk         => clk
+       );
+   
+    clock_UART:Clock_generator
+    port map(
+         disable     => '0',
+         clk         => clk_uart
+    );
+   
+   
     
     pc_test                     <= pc_out;
     instr_test                  <= instruction;
@@ -434,4 +512,5 @@ begin
     data_read_1                 <= read_data_1;
     data_read_2                 <= read_data_2;
     jump_address(31 DOWNTO 28)  <= pc_plus_4(31 DOWNTO 28);
+    
 end Behavioral;

@@ -36,7 +36,11 @@ entity dataMemory is
     writeData   : in STD_LOGIC_VECTOR (31 downto 0);
     memRead     : in STD_LOGIC;
     memWrite    : in STD_LOGIC;
-    readData    : out STD_LOGIC_VECTOR (31 downto 0) := (others => '0')
+    readData    : out STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
+    uartSend    : out STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
+    startSend   : out STD_LOGIC;
+    uartReceive : in  STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
+    received    : in  STD_LOGIC
     );
 end dataMemory;
 
@@ -63,21 +67,36 @@ architecture Behavioral of dataMemory is
         others => (others => '0')
     );
 
+    signal data_send    :   STD_LOGIC_VECTOR(31 DOWNTO 0) := x"00000000";
 begin
-
     dataMemoryProcess:process(clk)
     begin
         if(reset = '1') then
                 DM <= (others => (others => '0'));
         elsif(rising_edge(clk)) then
+            startSend <= '0';
             if (memWrite = '1') then
                  DM(to_integer(unsigned(address))) <= writeData;
+                 if (to_integer(unsigned(address)) = 63) then
+                    uartSend  <= writeData;
+                    if (writeData = data_send) then
+                        
+                    else
+                        startSend <= '1';
+                        data_send <= writeData;
+                    end if;
+                 end if;
             end if;
             if (memRead = '1') then
                  readData <= DM(to_integer(unsigned(address)));
             end if;
+            if (received = '1') then
+                DM(62) <= uartReceive;
+            end if;
         end if;
     end process;
+    
+
 
 
 end Behavioral;

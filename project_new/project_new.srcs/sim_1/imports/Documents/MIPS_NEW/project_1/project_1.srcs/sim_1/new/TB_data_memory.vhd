@@ -42,7 +42,11 @@ component dataMemory is
     writeData   : in STD_LOGIC_VECTOR (31 downto 0);
     memRead     : in STD_LOGIC;
     memWrite    : in STD_LOGIC;
-    readData    : out STD_LOGIC_VECTOR (31 downto 0) := (others => '0')
+    readData    : out STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
+    uartSend    : out STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
+    startSend   : out STD_LOGIC;                                        
+    uartReceive : in  STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
+    received    : in  STD_LOGIC := '0'                                 
     );
 end component;
 
@@ -53,6 +57,12 @@ signal writeData: STD_LOGIC_VECTOR(31 DOWNTO 0);
 signal memRead  : STD_LOGIC;
 signal memWrite : STD_LOGIC;
 signal readData : STD_LOGIC_VECTOR(31 DOWNTO 0);
+signal uartSend    :  STD_LOGIC_VECTOR (31 downto 0);
+signal  startSend   : STD_LOGIC;                    
+signal  uartReceive : STD_LOGIC_VECTOR (31 downto 0);
+signal  received    : STD_LOGIC := '0';    
+         
+
 
                                         
 constant clk_period : time := 10 ns;
@@ -67,7 +77,11 @@ begin
         writeData, 
         memRead, 
         memWrite, 
-        readData
+        readData, 
+        uartSend, 
+        startSend, 
+        uartReceive, 
+        received
     );
     clk_process : process
                 begin
@@ -90,6 +104,18 @@ begin
                     memRead <= '1';
                     wait for 10ns;
                     address <= std_logic_vector(to_unsigned(4, 32));
+                    wait for 10ns;
+                    address <= std_logic_vector(to_unsigned(62, 32));
+                    memWrite <= '1';
+                    memRead <= '0';
+                    wait for 100ns;
+                    memWrite <= '0';
+                    memRead <= '1';
+                    uartReceive <= x"41414141";
+                    wait for 20ns;
+                    received <='1';
+                    wait for 10ns;
+                    received <='0';
                     wait;
                 end process;
 end Behavioral;

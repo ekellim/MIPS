@@ -1,4 +1,8 @@
 # compile vhdl design source files
+vhdl xil_defaultlib  "../../../project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/utils.vhd"
+vhdl xil_defaultlib  "../../../project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/dataMemory.vhd"
+vhdl xil_defaultlib  "../../../project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/UART.vhd"
+vhdl xil_defaultlib  "../../../project_new.srcs/sources_1/new/Clock_generator.vhd"
 vhdl xil_defaultlib  "../../../project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/ALU.vhd"
 vhdl xil_defaultlib  "../../../project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/ProgramCounter.vhd"
 vhdl xil_defaultlib  "../../../project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Adder.vhd"
@@ -7,7 +11,6 @@ vhdl xil_defaultlib  "../../../project_new.srcs/sources_1/imports/Documents/MIPS
 vhdl xil_defaultlib  "../../../project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Registers.vhd"
 vhdl xil_defaultlib  "../../../project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Mux_2to1.vhd"
 vhdl xil_defaultlib  "../../../project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/InstructionMemory.vhd"
-vhdl xil_defaultlib  "../../../project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/dataMemory.vhd"
 vhdl xil_defaultlib  "../../../project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/Control.vhd"
 vhdl xil_defaultlib  "../../../project_new.srcs/sources_1/imports/Documents/MIPS_NEW/project_1/project_1.srcs/sources_1/new/AND_gate.vhd"
 vhdl xil_defaultlib  "../../../project_new.srcs/sources_1/imports/Documents/MIPSNEW/MIPS/project_1/project_1.srcs/sources_1/new/ALU_Control.vhd"
